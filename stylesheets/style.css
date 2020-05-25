@@ -1,5 +1,13 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+body {
+  margin: 0%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .navbar-icon-top .navbar-nav .nav-link > .fa {
   position: relative;
   width: 36px;
@@ -316,7 +324,7 @@ div.desc {
 }
 
 /* Create two equal columns that floats next to each other */
-.row {
+.our-story {
   margin-bottom: 30px;
 }
 .column {
@@ -328,7 +336,7 @@ div.desc {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.our-story:after {
   content: "";
   display: table;
   clear: both;
@@ -402,6 +410,10 @@ div.desc {
   padding-bottom: 30px;
   padding-top: 30px;
   margin-top: 50px;
+  position: buttom;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 .text-uppercase {
   color: white;
@@ -415,4 +427,8 @@ div.desc {
 .footer-copyright {
   color: white;
   text-align: center;
+}
+
+a .nav-link{
+  color: white;
 }

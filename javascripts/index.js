@@ -7,3 +7,8 @@ $(document).ready(function() {
       } 
   });  
 });
+
+var join_button = document.getElementById("join-us")
+join_button.onclick = function () {
+    location.href = "join-us.html"
+}
