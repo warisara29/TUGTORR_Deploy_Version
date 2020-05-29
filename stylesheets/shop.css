@@ -125,47 +125,50 @@
   color: black;
 }
 
-.join-us-container {
-  margin-top: 50px;
-  margin-left: 100px;
-  margin-right: 100px;
+.product {
+  text-align: center;
+  margin: 30px;
 }
 
-.border-story {
-    padding: 40px;
-    max-width: 100%;
-    border: 1.5px solid #000000;
-    text-align: center;
-    text-transform: uppercase;
-    color : #000000 ;
-    text-indent: 30px;
-    text-align: justify;
-    letter-spacing: 2px;
-  }
+.product-list{
+  padding: 10px;
+}
 
-  .checkbox {
-    text-align: left ;
-    margin-top: 20px;
-    text-transform: uppercase;
-    text-indent: 50px;
-    letter-spacing: 2px;
+.product-list .card {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
 
-  }
+.card .title {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-  .join-us {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    padding: 5px;
-    width: 100px;
-    color: white;
-    background-color: black;
-    align-items: center;
-  }
+.card img {
+  max-width: 100%;
+}
 
-.join-us-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card .product-name{
+  text-align: left;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-price {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 24px;
+  color: #ff6348;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 1rem;
+  grid-auto-flow: dense;
+  padding: 1rem;
 }
 
 .page-footer {

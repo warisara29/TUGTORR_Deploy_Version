@@ -15,7 +15,7 @@ function showTab(n) {
     var submit = document.getElementById("nextBtn")
     submit.innerHTML = "Submit";
     submit.onclick = function() {
-        location.href = "index.html"
+        location.href = "index"
     }
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
