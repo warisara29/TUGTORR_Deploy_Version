@@ -15,17 +15,30 @@ var signUp = document.getElementById("btn-register");
 
 signUp.addEventListener("click", function(event) {
     event.preventDefault();
+    var name = document.getElementById("name").value
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
+    var confirmPassword = document.getElementById("confirm-password").value
 
-    
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(function(error) {
-        // Handle Errors here.
+    if (password === confirmPassword) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(function() {
+            alert("congrates "+ name +",  sign up successfully!!")
+            window.location = "login.html"
+        }) 
+        .catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        // ...
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
     });
+    }
 
     console.log(email)
     console.log(password)
