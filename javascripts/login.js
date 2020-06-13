@@ -35,3 +35,9 @@ login.addEventListener("click", function(event) {
     console.log(email)
     console.log(password)
 })
+
+// click sign up button
+var signup = document.getElementById("signup")
+signup.onclick({
+    location = 'signup.html'
+})
