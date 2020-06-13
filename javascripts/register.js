@@ -23,6 +23,15 @@ signUp.addEventListener("click", function(event) {
     if (password === confirmPassword) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function() {
+            // [START sendemailverification]
+            firebase.auth().currentUser.sendEmailVerification().then(function() {
+                // Email Verification sent!
+                // [START_EXCLUDE]
+                alert('Email Verification Sent!');
+                // [END_EXCLUDE]
+            });
+            // [END sendemailverification]
+          
             alert("congrates "+ name +",  sign up successfully!!")
             window.location = "login.html"
         }) 

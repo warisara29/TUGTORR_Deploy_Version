@@ -22,7 +22,7 @@ login.addEventListener("click", function(event) {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(){
         console.log("sigin successfully")
-        window.location = '/index'
+        window.location = 'index.html'
     })
     .catch(function(error) {
         // Handle Errors here.
