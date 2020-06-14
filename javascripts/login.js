@@ -1,3 +1,5 @@
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyBTsuGF9QEwGQDM1F_4nn2EpMgh5maLNWQ",
     authDomain: "tugtorr-691a5.firebaseapp.com",
@@ -35,9 +37,4 @@ login.addEventListener("click", function(event) {
     console.log(email)
     console.log(password)
 })
-
-// click sign up button
-var signup = document.getElementById("signup")
-signup.onclick({
-    location = 'signup.html'
-})
+ 
