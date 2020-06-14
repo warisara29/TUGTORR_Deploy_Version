@@ -1,5 +1,3 @@
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyBTsuGF9QEwGQDM1F_4nn2EpMgh5maLNWQ",
     authDomain: "tugtorr-691a5.firebaseapp.com",
@@ -37,4 +35,31 @@ login.addEventListener("click", function(event) {
     console.log(email)
     console.log(password)
 })
+
+//sign in with facebook
+function facebook_login() {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('email');
+    firebase.auth().useDeviceLanguage();
+    provider.setCustomParameters({
+        'display': 'popup'
+    });
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        console.log('user')
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+}
  
