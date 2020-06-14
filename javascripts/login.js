@@ -39,7 +39,7 @@ login.addEventListener("click", function(event) {
 //sign in with facebook
 function facebook_login() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('email');
+    provider.addScope('user_birthday');
     firebase.auth().useDeviceLanguage();
     provider.setCustomParameters({
         'display': 'popup'
