@@ -50,6 +50,7 @@ function facebook_login() {
         // The signed-in user info.
         var user = result.user;
         console.log('user')
+        location.href = "index.html"
         // ...
       }).catch(function(error) {
         // Handle Errors here.
