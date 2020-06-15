@@ -38,7 +38,8 @@ login.addEventListener("click", function(event) {
 
 //sign in with facebook
 var provider = new firebase.auth.FacebookAuthProvider();
-function loginFacebook() {
+
+function facebook_login() {
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
         var token = result.credential.accessToken;
