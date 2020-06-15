@@ -90,7 +90,7 @@ function facebook_login() {
 
         window.location.href = "index.html"
         var logout = document.getElementById("login")
-        logout.textContent = "LOG OUT" ;
+        logout.querySelector('a').textContent = 'LOG OUT'
 
     }).catch(function(error) {
         // Handle Errors here.
