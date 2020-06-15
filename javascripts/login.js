@@ -36,20 +36,22 @@ login.addEventListener("click", function(event) {
     console.log(password)
 })
 
-//sign in with facebook
-var provider = new firebase.auth.FacebookAuthProvider();
-
-function facebook_login() {
-    firebase.auth().signInWithPopup(provider)
-    .then(function(result) {
+function google_login() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
         var token = result.credential.accessToken;
         var user = result.user;
 
         console.log(token)
         console.log(user)
     }).catch(function(error) {
-        console.log(error.code)
-        console.log(error.message)
+        var errorCode = error.code
+        var errorMessage = error.message
+
+        console.log(errorCode)
+        console.log(errorMessage)
     })
 }
+
+
  
