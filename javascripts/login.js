@@ -89,7 +89,9 @@ function facebook_login() {
         console.log('user is '+ user)
 
         window.location.href = "index.html"
-        
+        var logout = document.getElementById("login")
+        logout.textContent = "LOG OUT" ;
+
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
