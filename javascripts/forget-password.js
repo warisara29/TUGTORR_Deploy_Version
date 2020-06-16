@@ -7,10 +7,11 @@ const firebaseConfig = {
     messagingSenderId: "1048933698438",
     appId: "1:1048933698438:web:4476a50309f38b4af6fa07"
 };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 //forget password
 function forgetPassword() {
-    function sendPasswordReset() {
         var email = document.getElementById('email').value
         firebase.auth().sendPasswordResetEmail(email).then(function() {
             alert('password reset email sent!')
@@ -24,5 +25,4 @@ function forgetPassword() {
             }
             console.log(error)
         })
-    }
 }
