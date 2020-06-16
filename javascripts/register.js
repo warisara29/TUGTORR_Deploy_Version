@@ -29,6 +29,9 @@ signUp.addEventListener("click", function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
               }
+              else {
+                alert('error')
+              }
             }
             alert('Sign up success!!')
             window.location.href = "login.html"
