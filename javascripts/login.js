@@ -11,7 +11,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// sign up function
+// login function
 var login = document.getElementById("login");
 
 login.addEventListener("click", function(event) {
@@ -37,6 +37,8 @@ login.addEventListener("click", function(event) {
     console.log(email)
     console.log(password)
 })
+
+//login with google
 
 function google_login() {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -72,6 +74,8 @@ function google_login() {
       });
 }
 
+// login with facebook
+
 function facebook_login() {
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('user_birthday');
@@ -105,6 +109,26 @@ function facebook_login() {
         // ...
     });
 }
+
+//forget password
+function forgetPassword() {
+    function sendPasswordReset() {
+        var email = document.getElementById('email').value
+        firebase.auth().sendPasswordResetEmail(email).then(function() {
+            alert('password reset sent to your email')
+        }).catch(function(error) {
+            var errerCode = error.code
+            var errorMessage = error.message
+            if (errorCode == 'auth/invalid-email') {
+                alert(errorMessage)
+            } else if (errorCode == 'auth/use-not-found') {
+                alert(errorMessage)
+            }
+            console.log(error)
+        })
+    }
+}
+
 
 
  
