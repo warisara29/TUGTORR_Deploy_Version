@@ -25,13 +25,6 @@ signUp.addEventListener("click", function(event) {
         .then(function() {
             // [START sendemailverification]
             var modal = document.getElementById('modelVerify')
-            var popup = document.getElementById('verifyEmail')[0]
-            popup.onclick = function() {
-              firebase.auth().currentUser.sendEmailVerification().then(function() {
-                modal.style.display = "none"
-                alert('Email verification Sent!!!')
-              })
-            }
             window.onclick = function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
