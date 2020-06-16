@@ -29,9 +29,13 @@ signUp.addEventListener("click", function(event) {
             if (person == null || person == "") {
               text = "User cancelled the prompt.";
             } else {
-              text = "Hello " + person + "! How are you today?";
+              text = person;
+              text.onclick = function() {
+                firebase.auth().currentUser.sendEmailVerification().then() {
+                  alert('email verification sent !')
+                }
+              }
             }
-            console.log(text)
             alert('Sign up success!!')
             //window.location.href = "login.html"
             
