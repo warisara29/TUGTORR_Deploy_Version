@@ -24,17 +24,16 @@ signUp.addEventListener("click", function(event) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function() {
             // [START sendemailverification]
-            var modal = document.getElementById('modelVerify')
-            window.onclick = function(event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-              else {
-                alert('error')
-              }
+            var text;
+            var person = prompt("Please enter your email address again:", "");
+            if (person == null || person == "") {
+              text = "User cancelled the prompt.";
+            } else {
+              text = "Hello " + person + "! How are you today?";
             }
+            console.log(text)
             alert('Sign up success!!')
-            window.location.href = "login.html"
+            //window.location.href = "login.html"
             
         }) 
         .catch(function(error) {
