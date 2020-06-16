@@ -88,9 +88,9 @@ function facebook_login() {
         console.log('token is ' + token)
         console.log('user is '+ user)
 
-        window.location.href = "index.html"
-        var logout = document.getElementById("login")
-        logout.querySelector('a').textContent = 'LOG OUT'
+        var logout = window.location.href = "index.html"
+        var logout_textchenge = logout.document.getElementById("login")
+        logout_textchenge.querySelector('a').textContent = 'LOG OUT'
 
     }).catch(function(error) {
         // Handle Errors here.
