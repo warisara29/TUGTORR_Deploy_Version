@@ -22,7 +22,9 @@ login.addEventListener("click", function(event) {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(){
         console.log("sigin successfully")
-        window.location = 'index.html'
+        var logout = window.location.href = "index.html"
+        var logout_textchenge = logout.document.getElementById("login-nav")
+        logout_textchenge.querySelector('a').textContent = 'LOG OUT'
     })
     .catch(function(error) {
         // Handle Errors here.
@@ -89,7 +91,7 @@ function facebook_login() {
         console.log('user is '+ user)
 
         var logout = window.location.href = "index.html"
-        var logout_textchenge = logout.document.getElementById("login")
+        var logout_textchenge = logout.document.getElementById("login-nav")
         logout_textchenge.querySelector('a').textContent = 'LOG OUT'
 
     }).catch(function(error) {
