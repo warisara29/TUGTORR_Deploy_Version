@@ -110,25 +110,6 @@ function facebook_login() {
     });
 }
 
-//forget password
-function forgetPassword() {
-    function sendPasswordReset() {
-        var email = document.getElementById('email').value
-        firebase.auth().sendPasswordResetEmail(email).then(function() {
-            alert('password reset sent to your email')
-        }).catch(function(error) {
-            var errerCode = error.code
-            var errorMessage = error.message
-            if (errorCode == 'auth/invalid-email') {
-                alert(errorMessage)
-            } else if (errorCode == 'auth/use-not-found') {
-                alert(errorMessage)
-            }
-            console.log(error)
-        })
-    }
-}
-
 
 
  
