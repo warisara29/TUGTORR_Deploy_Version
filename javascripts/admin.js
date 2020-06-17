@@ -10,6 +10,9 @@ var firebaseConfig = {
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+var signout = document.getElementById('signout')
+signout.addEventListener("click", signOut())
+
 function signOut() {
     auth.signOut().then(() => {
         alert('You are signing out!')
