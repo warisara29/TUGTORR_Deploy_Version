@@ -21,39 +21,31 @@ signUp.addEventListener("click", function(event) {
     var confirmPassword = document.getElementById("confirm-password").value
 
     if (password === confirmPassword) {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function() {
-            // [START sendemailverification]
-            var text;
-            var person = prompt("Please enter your email address again:", "");
-            if (person == null || person == "") {
-              text = "User cancelled the prompt.";
-            } else {
-              text = person;
-              text.onclick = function() {
-                firebase.auth().currentUser.sendEmailVerification().then() {
-                  alert('email verification sent !')
-                }
-              }
-            }
-            alert('Sign up success!!')
-            //window.location.href = "login.html"
-            
-        }) 
-        .catch(function(error) {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      firebase.auth().useDeviceLanguage();
+      provider.setCustomParameters({
+        'login_hint': 'user@example.com'
+      });
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode == 'auth/weak-password') {
-          alert('The password is too weak.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
-        // [END_EXCLUDE]
-    });
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    } else {
+      alert('password is not matched')
     }
-
     console.log(email)
     console.log(password)
 })

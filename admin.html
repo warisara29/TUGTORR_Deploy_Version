@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TUGTORR | ถักทอ</title>
+    <link rel='stylesheet' href='stylesheets/admin.css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c78121cbbe.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <ul>
+      <div class="admin-icon">
+        <img class="admin-img" src="images/icon_img.jpg" alt="admin">
+        <br><p>ADMIN</p>
+      </div>
+      <li><a class="active" href="#home">Dashboard</a></li>
+      <li><a href="index.html">User Side</a></li>
+      <li><a href="#">sign out</a></li>
+    </ul>
+    
+    <div style="margin-left:20%;padding:1px 16px;height:auto;">
+      <div class="container">
+        <h5>Dashboard</h5>
+        <div class="grid-container">
+          <div class="grid-card">
+            <div class="top">
+              <div class="icon">
+                <i class="fas fa-store fa-4x"></i>
+              </div>
+              <div class="text">
+                <p id="number">10</p>
+                <p>store</p>
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="add-product">
+                <button id="add">add new product</button>
+              </div>
+              <div class="veiw-detail">
+                <a id="detail" href="#">veiw more detail
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">TWO</div>
+          <div class="grid-card">THREE</div>
+          <div class="grid-card">FOUR</div>
+        </div>
+      </div>
+    </div>    
+  </body>
+</html>
