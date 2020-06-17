@@ -23,7 +23,7 @@ signUp.addEventListener("click", function(event) {
     if (password === confirmPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password).then( function(){
         alert('sign up success!!')
-        window.location.href = "index.html"
+        window.location.href = "login.html"
       }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
