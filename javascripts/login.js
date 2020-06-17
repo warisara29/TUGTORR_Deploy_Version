@@ -11,6 +11,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
 // login function
 var login = document.getElementById("login");
 
@@ -21,8 +22,18 @@ login.addEventListener("click", function(event) {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(){
+        // init app
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                var displayName = user.displayName;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
+                var uid = user.uid;
+                console.log(email)
+            }
+        })
         console.log("signin successfully")
-        var logout = window.location.href = "index.html"
+        //var logout = window.location.href = "index.html"
         var logout_textchenge = logout.document.getElementById("login-nav")
         logout_textchenge.querySelector('a').textContent = 'LOG OUT'
     })
@@ -57,7 +68,7 @@ function google_login() {
         console.log('token is ' + token)
         console.log('user is '+ user)
 
-        window.location.href = "index.html"
+        //window.location.href = "index.html"
       }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -70,7 +81,7 @@ function google_login() {
         alert('ERROR!!!!')
         console.log(errorCode)
         console.log(errorMessage)
-        window.location.href = "register.html"
+        //window.location.href = "register.html"
       });
 }
 
