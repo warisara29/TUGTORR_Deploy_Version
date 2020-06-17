@@ -22,11 +22,16 @@ signUp.addEventListener("click", function(event) {
 
     if (password === confirmPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password).then( function(){
-        firebase.auth().currenUser.sendEmailVerification().then(function() {
-          alert('Email verification sent!')
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            user.sendEmailVerification();
+            alert('Email verification sent!')
+          } else {
+            alert('error!!!')
+          }
+          alert('sign up success!!')
+          window.location.href = "login.html"
         })
-        alert('sign up success!!')
-        window.location.href = "login.html"
       }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
