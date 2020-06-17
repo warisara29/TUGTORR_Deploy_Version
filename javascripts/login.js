@@ -19,6 +19,7 @@ login.addEventListener("click", function(event) {
     event.preventDefault();
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
+    var admin = "admin@admin.com"
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(){
@@ -29,13 +30,18 @@ login.addEventListener("click", function(event) {
                 var email = user.email;
                 var emailVerified = user.emailVerified;
                 var uid = user.uid;
-                console.log(email)
+                
+                if (email == admin) {
+                    alert("sign in successfully")
+                    window.location.href = "admin.html"
+                } else {
+                    alert("sign in successfully")
+                    window.location.href = "index.html"
+                }
+            } else {
+                alert('error!!')
             }
         })
-        console.log("signin successfully")
-        //var logout = window.location.href = "index.html"
-        var logout_textchenge = logout.document.getElementById("login-nav")
-        logout_textchenge.querySelector('a').textContent = 'LOG OUT'
     })
     .catch(function(error) {
         // Handle Errors here.
@@ -43,10 +49,6 @@ login.addEventListener("click", function(event) {
         var errorMessage = error.message;
         // ...
     });
-
-
-    console.log(email)
-    console.log(password)
 })
 
 //login with google
