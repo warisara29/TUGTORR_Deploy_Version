@@ -21,60 +21,16 @@ signUp.addEventListener("click", function(event) {
     var confirmPassword = document.getElementById("confirm-password").value
 
     if (password === confirmPassword) {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-      firebase.auth().useDeviceLanguage();
-      provider.setCustomParameters({
-        'login_hint': 'user@example.com'
-      });
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-        
-        // Confirm the link is a sign-in with email link.
-        if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-          // Additional state parameters can also be passed via URL.
-          // This can be used to continue the user's intended action before triggering
-          // the sign-in operation.
-          // Get the email if available. This should be available if the user completes
-          // the flow on the same device where they started it.
-          var email = window.localStorage.getItem('emailForSignIn');
-          if (!email) {
-            // User opened the link on a different device. To prevent session fixation
-            // attacks, ask the user to provide the associated email again. For example:
-            email = window.prompt('Please provide your email for confirmation');
-          }
-          // The client SDK will parse the code from the link for you.
-          firebase.auth().signInWithEmailLink(email, window.location.href)
-            .then(function(result) {
-              // Clear email from storage.
-              window.localStorage.removeItem('emailForSignIn');
-              // You can access the new user via result.user
-              // Additional user info profile not available via:
-              // result.additionalUserInfo.profile == null
-              // You can check if the user is new or existing:
-              // result.additionalUserInfo.isNewUser
-            })
-            .catch(function(error) {
-              // Some error occurred, you can inspect the code: error.code
-              // Common errors could be invalid email and invalid or expired OTPs.
-            });
-        }
+      firebase.auth().createUserWithEmailAndPassword(email, password).then( function(){
+
       }).catch(function(error) {
-        // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
+
+        window.alert("Error : " + errorMessage)
+      })
     } else {
-      alert('password is not matched')
+      alert()
     }
     console.log(email)
     console.log(password)

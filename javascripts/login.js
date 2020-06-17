@@ -21,7 +21,7 @@ login.addEventListener("click", function(event) {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(){
-        console.log("sigin successfully")
+        console.log("signin successfully")
         var logout = window.location.href = "index.html"
         var logout_textchenge = logout.document.getElementById("login-nav")
         logout_textchenge.querySelector('a').textContent = 'LOG OUT'
