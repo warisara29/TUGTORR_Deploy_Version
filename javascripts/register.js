@@ -24,6 +24,7 @@ signUp.addEventListener("click", function(event) {
       firebase.auth().createUserWithEmailAndPassword(email, password).then( function(){
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
+            console.log("auth state changed: user="+user)
             user.sendEmailVerification();
             alert('Email verification sent!')
           } else {
