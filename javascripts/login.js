@@ -26,11 +26,7 @@ login.addEventListener("click", function(event) {
         // init app
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                var displayName = user.displayName;
                 var email = user.email;
-                var emailVerified = user.emailVerified;
-                var uid = user.uid;
-                
                 if (email == admin) {
                     alert("sign in successfully")
                     window.location.href = "admin.html"
