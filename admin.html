@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
   </head>
   <body>
     <ul>
@@ -22,6 +23,7 @@
       </div>
       <li><a class="active" href="#home">Dashboard</a></li>
       <li><a href="index.html">User Side</a></li>
+      <li><a href="shop.html">product</a></li>
       <li><a href="#" id="signout">sign out</a></li>
     </ul>
     
@@ -65,10 +67,70 @@
               </div>
             </div>
           </div>
-          <div class="grid-card">FOUR</div>
+        </div>
+      </div>
+      <div class="button-container">
+        <div class="btn-holder">
+          <button type="submit" class="btn-test" onclick="popupTest()">
+            <div class="icon-btn">
+              <i class="fas fa-plus-circle fa-lg"></i>
+            </div>
+            <div class="text-btn">
+              <h5 id="add">add product</5>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-container">
+        <span class="close">&times;</span>
+        <h5>Add new product</h5>
+        <div class="form-container">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Product Name</label>
+            <div class="col-sm-6">
+              <input  class="form-control" id="product-name" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Product Category</label>
+            <div class="col-sm-6">
+              <select class="custom-select mr-sm-2" id="category" required>
+                <option selected>Choose...</option>
+                <option value="silk">silk</option>
+                <option value="cotton">cotton</option>
+                <option value="satin">satin</option>
+                <option value="linen">linen</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Images of Product</label>
+            <div class="col-sm-6">
+              <input type="file" class="form-control-file" id="image">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Additional Description</label>
+            <div class="col-sm-6">
+              <textarea class="form-control" id="description" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Product Price</label>
+            <div class="col-sm-3">
+              <input  class="form-control" id="price" required>
+            </div>
+          </div>
+        </div>
+        <div class="submit-btn">
+          <button type="submit" class="btn" id="submit" onclick="upLoad()">Add Product</button>
         </div>
       </div>
     </div>    
   </body>
-  <script src="javascripts/admin.js"
+  <script src="javascripts/admin.js"></script>
 </html>
