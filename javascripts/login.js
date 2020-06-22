@@ -103,9 +103,7 @@ function facebook_login() {
         console.log('token is ' + token)
         console.log('user is '+ user)
 
-        var logout = window.location.href = "index.html"
-        var logout_textchenge = logout.document.getElementById("login-nav")
-        logout_textchenge.querySelector('a').textContent = 'LOG OUT'
+        window.location.href = "index.html"
 
     }).catch(function(error) {
         // Handle Errors here.
@@ -118,6 +116,14 @@ function facebook_login() {
         // ...
     });
 }
+
+function checkUser() {
+    var check = firebase.auth().currentUser
+    console.log("current user is " + check)
+} 
+
+
+
 
 
 
