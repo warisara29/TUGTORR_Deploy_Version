@@ -125,6 +125,13 @@
   color: black;
 }
 
+.option-shop{
+  margin: 0;
+    padding: 0;
+    width: 20%;
+
+}
+
 .product {
   text-align: center;
   margin: 30px;
