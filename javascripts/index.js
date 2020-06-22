@@ -27,18 +27,29 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const loggedOUT = document.querySelectorAll('#logout');
-const loggedIN = document.querySelectorAll('#login');
 
-console.log(loggedOUT)
+// check if user login or log out
+const loggedOUT = document.querySelector('#logout');
+const loggedIN = document.querySelector('#login');
 console.log(loggedIN)
+console.log(loggedOUT)
 
-const setupUI = (user) => {
+firebase.auth().onAuthStateChanged(function (user) {
+    console.log(user)
     if (user) {
-        loggedIN.forEach(item => item.syle.display = 'block')
-        loggedOUT.forEach(item => item.style.display = 'none')
+        loggedIN.style.display = 'block'
+        loggedOUT.style.display = 'none'
     } else {
-        loggedIN.forEach(item => item.syle.display = 'none')
-        loggedOUT.forEach(item => item.style.display = 'block')
+        loggedIN.syle.display = 'none'
+        loggedOUT.style.display = 'block'
     }
+})
+
+function signOut() {
+    firebase.auth().signOut()
+    .then( function() {
+        alert('signout success!!')
+    })
 }
+
+

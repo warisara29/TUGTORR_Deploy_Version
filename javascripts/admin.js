@@ -45,7 +45,7 @@ function upLoad() {
     //get input value
     var name = document.getElementById("product-name").value
     var category = document.getElementById("category").value
-    var images = document.getElementById("image").value
+    var images = document.getElementById("image")
     var description = document.getElementById("description").value
     var price = document.getElementById("price").value
 
@@ -53,11 +53,21 @@ function upLoad() {
     firebase.database().ref("Storage").push( {
         name: name,
         category: category,
-        images: images,
         description: description,
         price: price
     })
 
-    alert('New product added!')
+    const ref = firebase.storage().ref("product images")
+    const file = document.querySelector("#image").files[0]
+    const imageName = file.name
+    const metadata = {
+        contentType: file.type
+    }
+    const task = ref.child(imageName).put(file, metadata)
+    task.then(snapshot => snapshot.ref.getDownloadURL())
+    .then( url => {
+        console.log(url)
+        alert("Image Upload Successful")
+    })
 }
 
