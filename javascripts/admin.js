@@ -10,14 +10,13 @@ var firebaseConfig = {
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-var signout = document.querySelector('#signout')
-signout.addEventListener("click", (e) => {
-    e.preventDefault();
-    auth.signOut().then(() => {
-        alert('You are signing out. Press OK to confirm')
-        window.location.href = 'login.html'
+function signOut() {
+    firebase.auth().signOut()
+    .then( function() {
+        alert('signout success!!')
+        window.location.href = "login.html"
     })
-})
+}
 
 //add product
 
@@ -42,32 +41,38 @@ function popupTest() {
 
 function upLoad() {
 
-    //get input value
-    var name = document.getElementById("product-name").value
-    var category = document.getElementById("category").value
-    var images = document.getElementById("image")
-    var description = document.getElementById("description").value
-    var price = document.getElementById("price").value
-
-    //push data to firebase project
-    firebase.database().ref("Storage").push( {
-        name: name,
-        category: category,
-        description: description,
-        price: price
-    })
-
     const ref = firebase.storage().ref("product images")
     const file = document.querySelector("#image").files[0]
-    const imageName = file.name
+    const name = file.name
+
     const metadata = {
         contentType: file.type
     }
-    const task = ref.child(imageName).put(file, metadata)
+
+    const task = ref.child(name).put(file, metadata)
+
     task.then(snapshot => snapshot.ref.getDownloadURL())
     .then( url => {
         console.log(url)
-        alert("Image Upload Successful")
+         //get input value
+        var name = document.getElementById("product-name").value
+        var category = document.getElementById("category").value
+        var images = url
+        var description = document.getElementById("description").value
+        var price = document.getElementById("price").value
+
+        //push data to firebase project
+        firebase.database().ref("Storage").push( {
+            name: name,
+            category: category,
+            description: description,
+            price: price,
+            image: images      
+        }).then( function() {
+            alert("New product uploaded !")
+        })
     })
 }
+
+
 
