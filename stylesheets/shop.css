@@ -1,4 +1,4 @@
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
 
 .navbar-icon-top .navbar-nav .nav-link > .fa {
   position: relative;
@@ -127,8 +127,8 @@
 
 .option-shop{
   margin: 0;
-    padding: 0;
-    width: 20%;
+  padding: 0;
+  width: 20%;
 
 }
 
@@ -141,38 +141,40 @@
   padding: 10px;
 }
 
-.product-list .card {
+.product-list .card-product {
   background-color: white;
   padding: 10px;
   text-align: center;
 }
 
-.card .title {
+.card-product .title {
   font-size: 18px;
   font-weight: bold;
 }
 
-.card img {
+.card-product img {
   max-width: 100%;
+  background-color: rgb(241, 241, 241);
 }
 
-.card .product-name{
+.card-product .product-name{
   text-align: left;
+  margin-top: 10px;
   margin-left: 10px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  color: black;
 }
 
 .product-price {
   text-align: left;
   margin-left: 10px;
-  font-size: 24px;
-  color: #ff6348;
+  font-size: 16px;
+  color: rgb(68, 68, 68);
 }
 
 .product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 1rem;
   grid-auto-flow: dense;
   padding: 1rem;
@@ -201,3 +203,75 @@
   color: white;
   text-align: center;
 }
+
+.btn-group {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-group-container {
+  margin: 30px;
+}
+
+.dropdown {
+  width: 25%;
+}
+
+#dropdownMenuButton {
+  width: 100%;
+  border-radius: 0px;
+  border: rgb(216, 216, 216) 1px solid;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  width: 100%;
+  border-radius: 0px;
+  border: rgb(216, 216, 216) 1px solid;
+  margin: 10px;
+}
+
+.dropdown-item {
+  padding: 10px;
+  border: rgb(216, 216, 216) 1px solid;
+  height: 50px;
+}
+
+.color {
+  margin-left: 15px
+}
+
+#black {
+  color: black;
+}
+
+#white {
+  color: rgb(240, 241, 241);
+}
+
+#red { 
+  color: rgb(192, 72, 72);
+}
+
+#green {
+  color: rgb(72, 196, 72);
+}
+
+#blue {
+  color: rgb(67, 67, 199);
+}
+
+#brown {
+  color: rgb(100, 58, 58);
+}
+
+#orange {
+  color: rgb(255, 153, 0);
+}
+
+.fas {
+  margin: 8px;
+}
+

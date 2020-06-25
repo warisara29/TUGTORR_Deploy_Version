@@ -29,3 +29,21 @@ firebase.auth().onAuthStateChanged(function (user) {
         loggedOUT.style.display = 'block'
     }
 })
+
+firebase.database().ref('Storage').once('value').then(function(snapshot){
+  var name = snapshot.val().name
+  var category = snapshot.val().category
+  var description = snapshot.val().description
+  var images = snapshot.val().images
+  var price = snapshot.val().price
+
+  console.log("name :" + name)
+  console.log(category)
+  console.log(description)
+  console.log(images)
+  console.log(price)
+})
+
+
+
+  

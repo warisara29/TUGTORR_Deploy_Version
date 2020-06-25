@@ -11,6 +11,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+    <script src="https://kit.fontawesome.com/c78121cbbe.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
@@ -81,16 +85,70 @@
 
   
     <!---------product part------------>
-    <div style="margin-left:20%;padding:1px 16px;height:auto;">
+    <div style="padding:1px 16px;height:auto;">
     <h5 class="product">PRODUCTS</h5>
+    <div class="btn-group-container">
+      <div class="btn-group">
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            COLLECTION
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item">DRESS</button>
+            <button class="dropdown-item">SKIRT</button>
+            <button class="dropdown-item">HANDBACK</button>
+            <button class="dropdown-item">HAT</button>
+            <button class="dropdown-item">SHOES</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            COLOR
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="color">
+              <i class="fas fa-square fa-2x" id="black"></i>
+              <i class="fas fa-square fa-2x" id="white"></i>
+              <i class="fas fa-square fa-2x" id="red"></i>
+              <i class="fas fa-square fa-2x" id="blue"></i>
+              <i class="fas fa-square fa-2x" id="brown"></i>
+              <i class="fas fa-square fa-2x" id="green"></i>
+              <i class="fas fa-square fa-2x" id="orange"></i>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PRODUCT TYPE
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item">SILK</button>
+            <button class="dropdown-item">COTTON</button>
+            <button class="dropdown-item">SATIN</button>
+            <button class="dropdown-item">LINEN</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            SORT BY
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item">PRICE ( low - height )</button>
+            <button class="dropdown-item">PRICE ( height - low )</button>
+            <button class="dropdown-item">BEST SELLER</button>
+            <button class="dropdown-item">NEWEST</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="product-container">
       <section class="product-list">
-        <div class="card">
+        <div class="card-product">
           <a href="product_detail.html">
             <div class="product-img">
               <img src="images/arival_product1.png">
             </div>
-            <div class="product-name">
+            <div class="product-name" style = "text-transform:uppercase">
               Product 1
             </div>
             <div class="product-price">100$</div>
@@ -98,24 +156,12 @@
         </div>
       </section>
       <section class="product-list">
-        <div class="card">
+        <div class="card-product">
           <a href="product_detail.html">
             <div class="product-img">
               <img src="images/arival_product1.png">
             </div>
-            <div class="product-name">
-              Product 1
-            </div>
-            <div class="product-price">100$</div>
-          </a>
-      </section>
-      <section class="product-list">
-        <div class="card">
-          <a href="product_detail.html">
-            <div class="product-img">
-              <img src="images/arival_product1.png">
-            </div>
-            <div class="product-name">
+            <div class="product-name" style = "text-transform:uppercase">
               Product 1
             </div>
             <div class="product-price">100$</div>
@@ -123,12 +169,12 @@
         </div>
       </section>
       <section class="product-list">
-        <div class="card">
+        <div class="card-product">
           <a href="product_detail.html">
             <div class="product-img">
               <img src="images/arival_product1.png">
             </div>
-            <div class="product-name">
+            <div class="product-name" style = "text-transform:uppercase">
               Product 1
             </div>
             <div class="product-price">100$</div>
@@ -136,51 +182,12 @@
         </div>
       </section>
       <section class="product-list">
-        <div class="card">
+        <div class="card-product">
           <a href="product_detail.html">
             <div class="product-img">
               <img src="images/arival_product1.png">
             </div>
-            <div class="product-name">
-              Product 1
-            </div>
-            <div class="product-price">100$</div>
-          </a>
-        </div>
-      </section>
-      <section class="product-list">
-        <div class="card">
-          <a href="product_detail.html">
-            <div class="product-img">
-              <img src="images/arival_product1.png">
-            </div>
-            <div class="product-name">
-              Product 1
-            </div>
-            <div class="product-price">100$</div>
-          </a>
-        </div>
-      </section>
-      <section class="product-list">
-        <div class="card">
-          <a href="product_detail.html">
-            <div class="product-img">
-              <img src="images/arival_product1.png">
-            </div>
-            <div class="product-name">
-              Product 1
-            </div>
-            <div class="product-price">100$</div>
-          </a>
-        </div>
-      </section>
-      <section class="product-list">
-        <div class="card">
-          <a href="product_detail.html">
-            <div class="product-img">
-              <img src="images/arival_product1.png">
-            </div>
-            <div class="product-name">
+            <div class="product-name" style = "text-transform:uppercase">
               Product 1
             </div>
             <div class="product-price">100$</div>
@@ -188,49 +195,7 @@
         </div>
       </section>
     </div>
-    <div class="option-shop">
-      <h3>OPTION FOR SEARCHING</h3> 
-        <h4>Price</h4>
-        <label class="container"> 3000-5000 บาท 
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"> 6000-8000  
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"> 9000-12000 บาท
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"> 15000++ บาท 
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-      </div>
-  
-        <h5>Type of Product</h5>
-        <div class="select-type" style="width:200px;">
-          <select>
-            <option value="0">Select:</option>
-            <option value="1">กระเป๋า</option>
-            <option value="2">เครื่องแต่งกาย </option>
-            <option value="3"> เครื่องประดับ</option>
-            <option value="4">อื่นๆ </option>
-          </select>
-        </div>
-    
-        <h5>Community</h5>
-        <div class="select-commu" style="width:200px;">
-          <select>
-            <option value="0">Select:</option>
-            <option value="1">ชุมชนบ้านชนบท</option>
-            <option value="2">ชุมชนบ้านเขว้า </option>
-            <option value="3">ชุมชนบ้านภูผาม่าน</option>
-            <option value="4">อื่นๆ </option>
-          </select>
-        </div>
-  
+  </div>
   </body>
   
   <!-- Footer -->
